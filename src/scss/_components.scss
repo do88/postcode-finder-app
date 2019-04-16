@@ -1,0 +1,47 @@
+//  ===========================================
+//  Typography
+//  ===========================================
+
+html,
+body,
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+.button {
+	font-family: $font-primary;
+}
+
+//  ===========================================
+//  API Bar
+//  ===========================================
+
+#api-bar {
+	p {
+		color: #fff;
+		margin-right: 10px;
+		font-size: 15px;
+		a {
+			@include underline-link();
+		}
+	}
+}
+
+//  ===========================================
+//  Footer & Error
+//  ===========================================
+
+footer p,
+.error {
+	text-align: center;
+	color: #fff;
+	font-size: 15px;
+	margin: 0;
+	a {
+		@include underline-link();
+	}
+}

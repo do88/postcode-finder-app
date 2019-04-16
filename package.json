@@ -1,0 +1,22 @@
+{
+  "name": "postcode-finder-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://do88@github.com/do88/postcode-finder-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/do88/postcode-finder-app/issues"
+  },
+  "homepage": "https://github.com/do88/postcode-finder-app#readme",
+  "devDependencies": {
+    "sass": "^1.18.0"
+  }
+}
