@@ -82,11 +82,11 @@ $color-grey: #c9ccd4;
 		height: 40%;
 		left: 0;
 		top: 100%;
-		background: #888;
+		background: darken($color-orange, 25%);
 		transform-origin: 0% 0%;
 		transform: rotateX(-90deg);
 	}
 	&:hover {
-		transform: rotateX(15deg);
+		transform: rotateX(20deg);
 	}
 }

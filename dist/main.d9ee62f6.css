@@ -490,12 +490,12 @@ footer p a:hover::after,
   height: 40%;
   left: 0;
   top: 100%;
-  background: #888;
+  background: #805c00;
   transform-origin: 0% 0%;
   transform: rotateX(-90deg);
 }
 .postcode-search__button:hover {
-  transform: rotateX(15deg);
+  transform: rotateX(20deg);
 }
 
 html,
