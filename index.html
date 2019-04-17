@@ -20,36 +20,39 @@
 		</form>
 	</div>
 
-	<!-- ERROR -->
-	<div class="error">
-		<p>This is an invalid API key. Please go to <a href="https://openweathermap.org/">openweathermap.org</a> to sign up for a valid key.</p>
-	</div>
-
 	<!-- MAIN CONTAINER -->
 	<div id="container">
+
+		<!-- ERROR -->
+		<div class="error">
+			<p>This is an invalid API key. Please go to <a href="https://openweathermap.org/">openweathermap.org</a> to sign up for a valid key.</p>
+		</div>
+
+		<!-- POSTCODE SEARCH BOX -->
 		<div class="postcode-search">
-			<div class="postcode-search__logo">
-				<svg>
-					<use xlink:href="/src/img/Logo.svg#Logo"></use>
-				</svg>
-			</div>
+			<svg class="postcode-search__logo">
+				<use href="/src/img/Logo.svg#Logo"></use>
+			</svg>
 			<h3>Enter your postcode:</h3>
 			<form class="postcode-search__form">
 				<input type="text" name="" id="postcodeField">
 				<button type="submit">GO</button>
 			</form>
-			<a href="#" id="getLocation" class="postcode-search__button">Use my location
-				<svg>
-					<use xlink:href="/src/img/GetLocation.svg#getLocation"></use>
-				</svg>
-			</a>
-		</div>
-	</div>
+			<div class="postcode-search__perspective">
+				<a href="#" id="getLocation" class="postcode-search__button">Use my location
+					<svg>
+						<use href="/src/img/GetLocation.svg#getLocation"></use>
+					</svg>
+				</a>
+			</div>
 
-	<!-- FOOTER -->
-	<footer>
-		<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/">LinkedIn</a> --- Icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> </p>
-	</footer>
+		</div>
+
+		<!-- FOOTER -->
+		<footer>
+			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/">LinkedIn</a> --- Icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> </p>
+		</footer>
+	</div>
 
 	<script src="/src/js/app.js"></script>
 </body>
