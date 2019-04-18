@@ -100,3 +100,28 @@ footer p,
 		@include button-rotate();
 	}
 }
+
+//  ===========================================
+//  Weather & Location Boxes
+//  ===========================================
+
+.location {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.weather__row {
+	border-bottom: 1px solid $color-grey;
+	flex: 1;
+ p.small {
+	font-size: 14px;
+	color: $color-blue--light;
+	margin: 0;
+ }
+ p.big {
+	font-size: 30px;
+	color: $color-blue--dark;
+	margin: 0;
+ }
+}
