@@ -17,63 +17,61 @@ svg {
 //  Vertical Container
 //  ===========================================
 
-#container {
+.container {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: center;
-	height: 80vh;
-	.postcode-search {
-		align-self: center;
-	}
+	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100vh - 70px);
+}
+
+.container-wide {
+	@extend .container;
+	max-width: 1000px;
+	width: 95%;
+	margin: 0 auto;
 }
 
 //  ===========================================
-//  API Bar
+//  Title Bar
 //  ===========================================
 
-#api-bar {
-	z-index: 10;
-	width: 100%;
-	height: 70px;
-	background: $color-blue--light;
+.title-bar {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-content: center;
+	justify-content: space-between;
+	background: #fff;
 	box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
-	p {
-		align-self: center;
-	}
-	form {
-		align-self: center;
+	margin-bottom: 20px;
+	width: 100%;
+	.logo svg {
+		width: 280px;
+		height: 60px;
 	}
 }
 
+//  ===========================================
+//  Info Boxes
+//  ===========================================
+
+.boxes {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+.location,
+.weather {
+	width: 48%;
+	background: #fff;
+	box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
+}
+}
 //  ===========================================
 //  Error
 //  ===========================================
 
 .error {
-	z-index: 10;
 	width: calc(100% - 40px);
 	padding: 10px;
 	display: block;
 	margin: 20px auto 10px;
-	background: $color-red;
-	box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
-	p {
-		margin: 0;
-	}
-}
-
-//  ===========================================
-//  Postcode Search
-//  ===========================================
-
-.postcode-search {
-	z-index: 10;
 }
 
 //  ===========================================
@@ -81,10 +79,7 @@ svg {
 //  ===========================================
 
 footer {
-	z-index: 10;
 	width: 100%;
-	position: fixed;
-	bottom: 5px;
 	display: block;
 	padding: 10px;
 }

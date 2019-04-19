@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/do88/postcode-finder-app#readme",
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "sass": "^1.18.0"
   }
 }
