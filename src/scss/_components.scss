@@ -105,23 +105,22 @@ footer p,
 //  Weather & Location Boxes
 //  ===========================================
 
-.location {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.weather__row {
+.row {
 	border-bottom: 1px solid $color-grey;
 	flex: 1;
- p.small {
-	font-size: 14px;
-	color: $color-blue--light;
-	margin: 0;
- }
- p.big {
-	font-size: 30px;
-	color: $color-blue--dark;
-	margin: 0;
- }
+	display: flex;
+	align-items: center;
+	padding: 15px 20px;
+	width: 100%;
+	text-align: left;
+	p.small {
+		font-size: 14px;
+		color: $color-blue--light;
+		margin: 0;
+	}
+	p.big {
+		font-size: 30px;
+		color: $color-blue--dark;
+		margin: 0;
+	}
 }
