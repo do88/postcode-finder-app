@@ -44,8 +44,100 @@ h3 {
 			@include underline-link();
 		}
 	}
+	a {
+		align-self: center;
+	}
 	form {
 		align-self: center;
+	}
+	.api {
+		background: #fff;
+		color: $color-blue--dark;
+		padding: 10px;
+		font-size: 16px;
+	}
+}
+
+//  ===========================================
+//  API Form
+//  ===========================================
+
+#apiForm {
+	input {
+		border: 0;
+		outline: 0;
+		font-size: 14px;
+		padding: 10px;
+		border: 3px solid $color-blue--light;
+		transition: border 0.3s ease-in;
+		width: 280px;
+		margin-right: 10px;
+		&:focus {
+			border: 3px solid $color-blue--dark;
+		}
+	}
+}
+
+//  ===========================================
+//  Postcode Form
+//  ===========================================
+
+#postcodeForm {
+	input {
+		border: 0;
+		outline: 0;
+		font-size: 36px;
+		letter-spacing: 7px;
+		font-weight: bold;
+		margin: 0;
+		padding: 0 10px;
+		height: 60px;
+		transition: border 0.3s ease-in;
+		width: 260px;
+		text-transform: uppercase;
+		&:focus {
+			background: lighten($color-green, 50%);
+		}
+	}
+	.button {
+		margin: 0;
+		height: 60px;
+		position: relative;
+		top: -8px;
+	}
+}
+
+//  ===========================================
+//  Buttons
+//  ===========================================
+
+.button {
+	display: inline-block;
+	padding: 9px 12px;
+	text-decoration: none;
+	color: #fff;
+	margin-right: 10px;
+	font-size: 15px;
+	font-weight: bold;
+	transition: all 0.2s ease-in;
+	&--clear {
+		border: 3px solid $color-red;
+		&:hover {
+			text-decoration: none;
+			border: 3px solid darken($color-red, 10%);
+			background: $color-red;
+		}
+	}
+	&--submit {
+		background: $color-orange;
+		border: 0;
+		outline: 0;
+		color: $color-blue--dark;
+		&:hover {
+			cursor: pointer;
+			color: #fff;
+			background: $color-green;
+		}
 	}
 }
 
@@ -54,7 +146,8 @@ h3 {
 //  ===========================================
 
 footer p,
-.error {
+.error,
+.success {
 	text-align: center;
 	color: #fff;
 	font-size: 15px;
@@ -70,6 +163,18 @@ footer p,
 
 .error {
 	background: $color-red;
+	box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
+	p {
+		margin: 0;
+	}
+}
+
+//  ===========================================
+//  Success
+//  ===========================================
+
+.success {
+	background: $color-green;
 	box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
 	p {
 		margin: 0;
@@ -102,6 +207,31 @@ footer p,
 }
 
 //  ===========================================
+// Title Bar
+//  ===========================================
+
+.title-bar {
+	.logo {
+		align-self: center;
+	}
+	.info {
+		text-align: right;
+		align-self: center;
+		.date {
+			font-size: 16px;
+			color: $color-orange;
+			font-weight: 700;
+			margin: 0;
+		}
+		.time {
+			font-size: 36px;
+			color: #fff;
+			margin: 0;
+		}
+	}
+}
+
+//  ===========================================
 //  Weather & Location Boxes
 //  ===========================================
 
@@ -111,8 +241,6 @@ footer p,
 	display: flex;
 	align-items: center;
 	padding: 15px 20px;
-	width: 100%;
-	text-align: left;
 	p.small {
 		font-size: 14px;
 		color: $color-blue--light;
@@ -122,5 +250,30 @@ footer p,
 		font-size: 30px;
 		color: $color-blue--dark;
 		margin: 0;
+	}
+}
+
+.summary {
+	.icon {
+		align-self: center;
+	}
+	.temp {
+		font-size: 50px;
+		color: $color-blue--dark;
+		margin: 0;
+		font-weight: bold;
+		margin-left: 15px;
+		align-self: baseline;
+	}
+	.unit {
+		font-size: 24px;
+		color: $color-blue--dark;
+		margin: 0;
+		font-weight: bold;
+		align-self: baseline;
+	}
+	.text {
+		margin-left: 15px;
+		align-self: baseline;
 	}
 }
