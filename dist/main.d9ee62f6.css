@@ -417,7 +417,7 @@ h3 {
 #api-bar .api {
   background: #fff;
   color: #091b40;
-  padding: 10px;
+  padding: 8px;
   font-size: 16px;
 }
 
@@ -460,7 +460,7 @@ h3 {
 
 .button {
   display: inline-block;
-  padding: 9px 12px;
+  padding: 8px 12px;
   text-decoration: none;
   color: #fff;
   margin-right: 10px;
@@ -469,11 +469,11 @@ h3 {
   transition: all 0.2s ease-in;
 }
 .button--clear {
-  border: 3px solid #ff3300;
+  border: 2px solid #ff3300;
 }
 .button--clear:hover {
   text-decoration: none;
-  border: 3px solid #cc2900;
+  border: 2px solid #cc2900;
   background: #ff3300;
 }
 .button--submit {

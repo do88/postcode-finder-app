@@ -53,7 +53,7 @@ h3 {
 	.api {
 		background: #fff;
 		color: $color-blue--dark;
-		padding: 10px;
+		padding: 8px;
 		font-size: 16px;
 	}
 }
@@ -113,7 +113,7 @@ h3 {
 
 .button {
 	display: inline-block;
-	padding: 9px 12px;
+	padding: 8px 12px;
 	text-decoration: none;
 	color: #fff;
 	margin-right: 10px;
@@ -121,10 +121,10 @@ h3 {
 	font-weight: bold;
 	transition: all 0.2s ease-in;
 	&--clear {
-		border: 3px solid $color-red;
+		border: 2px solid $color-red;
 		&:hover {
 			text-decoration: none;
-			border: 3px solid darken($color-red, 10%);
+			border: 2px solid darken($color-red, 10%);
 			background: $color-red;
 		}
 	}

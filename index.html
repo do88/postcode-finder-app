@@ -15,7 +15,7 @@
 	<div id="api-bar">
 		<p>Enter your <a href="https://openweathermap.org/">openweathermap.org</a> API key here</p>
 		<form id="apiForm">
-			<input type="text">
+			<input type="text" name="api-key">
 			<button type="submit" class="button button--submit">Submit</button>
 		</form>
 	</div>
@@ -24,8 +24,10 @@
 	<div class="container">
 
 		<!-- ERROR BOX -->
-		<div>
-			<p class="error">This is an invalid API key. Please go to <a href="https://openweathermap.org/">openweathermap.org</a> to sign up for a valid key.</p>
+		<div id="messageContainer">
+			<div id="messageText">
+			<!-- <p class="error">This is an invalid API key. Please go to <a href="https://openweathermap.org/">openweathermap.org</a> to sign up for a valid key.</p> -->
+			</div>
 		</div>
 
 		<!-- POSTCODE SEARCH BOX -->
