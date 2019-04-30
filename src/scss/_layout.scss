@@ -92,12 +92,14 @@ svg {
 //  Error
 //  ===========================================
 
+#messageContainer {
+	height: 38px;
+}
 .error,
 .success {
-	width: calc(100% - 40px);
+	width: 100%;
 	padding: 10px;
 	display: block;
-	margin: 20px auto 10px;
 }
 
 //  ===========================================

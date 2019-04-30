@@ -365,7 +365,8 @@ h3,
 h4,
 h5,
 span,
-.button {
+.button,
+.postcode-search__button {
   font-family: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -448,22 +449,18 @@ h3 {
   width: 260px;
   text-transform: uppercase;
 }
-#postcodeForm input:focus {
-  background: #e8fccf;
-}
-#postcodeForm .button {
+#postcodeForm .button, #postcodeForm .postcode-search__button {
   margin: 0;
   height: 60px;
   position: relative;
   top: -8px;
 }
 
-.button {
+.button, .postcode-search__button {
   display: inline-block;
   padding: 8px 12px;
   text-decoration: none;
   color: #fff;
-  margin-right: 10px;
   font-size: 15px;
   font-weight: bold;
   transition: all 0.2s ease-in;
@@ -537,7 +534,6 @@ footer p a:hover::after,
 }
 
 .postcode-search {
-  width: 440px;
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -555,38 +551,44 @@ footer p a:hover::after,
 }
 .postcode-search__button {
   display: flex;
-  padding: 10px 15px;
   color: #091b40;
   background: #ffb700;
-  text-decoration: none;
-  transition: all 0.3s;
-  outline: 1px solid transparent;
-  /* FF jagged edges fix */
-  transform-style: preserve-3d;
 }
 .postcode-search__button svg {
   margin-left: 5px;
   width: 20px;
   height: 20px;
   fill: #091b40;
-}
-.postcode-search__button:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  transition: all 0.3s;
-  width: 100%;
-  height: 40%;
-  left: 0;
-  top: 100%;
-  background: #805c00;
-  transform-origin: 0% 0%;
-  transform: rotateX(-90deg);
+  transition: all 0.2s ease-in;
 }
 .postcode-search__button:hover {
-  transform: rotateX(20deg);
+  color: #fff;
+  background: #70bf0d;
+}
+.postcode-search__button:hover svg {
+  fill: #fff;
 }
 
+.loader {
+  margin: 5rem auto;
+  text-align: center;
+}
+.loader svg {
+  height: 50px;
+  width: 58px;
+  fill: #ffb700;
+  transform-origin: 44% 50%;
+  animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .title-bar .logo {
   align-self: center;
 }
@@ -724,12 +726,15 @@ svg {
   width: auto;
 }
 
+#messageContainer {
+  height: 38px;
+}
+
 .error,
 .success {
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 10px;
   display: block;
-  margin: 20px auto 10px;
 }
 
 footer {

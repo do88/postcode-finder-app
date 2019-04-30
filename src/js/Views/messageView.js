@@ -11,6 +11,6 @@ export const displayUserMessage = (messageContent, messageType) => {
 		.hide()
 		.html(markup)
 		.fadeIn()
-		.delay(2000)
+		.delay(1500)
 		.fadeOut();
 };

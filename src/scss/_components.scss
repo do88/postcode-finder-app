@@ -95,9 +95,6 @@ h3 {
 		transition: border 0.3s ease-in;
 		width: 260px;
 		text-transform: uppercase;
-		&:focus {
-			background: lighten($color-green, 50%);
-		}
 	}
 	.button {
 		margin: 0;
@@ -116,7 +113,7 @@ h3 {
 	padding: 8px 12px;
 	text-decoration: none;
 	color: #fff;
-	margin-right: 10px;
+	// margin-right: 10px;
 	font-size: 15px;
 	font-weight: bold;
 	transition: all 0.2s ease-in;
@@ -186,7 +183,6 @@ footer p,
 //  ===========================================
 
 .postcode-search {
-	width: 440px;
 	align-self: center;
 	display: flex;
 	flex-direction: column;
@@ -202,7 +198,49 @@ footer p,
 		margin-top: 20px;
 	}
 	&__button {
-		@include button-rotate();
+		@extend .button;
+		display: flex;
+		color: $color-blue--dark;
+		background: $color-orange;
+		svg {
+			margin-left: 5px;
+			width: 20px;
+			height: 20px;
+			fill: $color-blue--dark;
+			transition: all 0.2s ease-in;
+		}
+		&:hover {
+			color: #fff;
+			background: $color-green;
+			svg {
+				fill: #fff;
+			}
+		}
+	}
+}
+
+//  ===========================================
+// Loader when searching for postcode
+//  ===========================================
+
+.loader {
+	margin: 5rem auto;
+	text-align: center;
+	svg {
+		height: 50px;
+		width: 58px;
+		fill: $color-orange;
+		transform-origin: 44% 50%;
+		animation: rotate 1.5s infinite linear;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }
 

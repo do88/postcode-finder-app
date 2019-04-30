@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="50px" viewBox="0 0 58 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Loader</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Loader" stroke="none" stroke-width="1">
+        <g id="Path">
+            <path d="M57.1,25 L49.9,25 L49.9,24.4 C49.5,10.9 38.5,0 24.9,0 C11.2,0 0,11.2 0,25 C0,38.8 11.2,50 24.9,50 C30.7,50 36,48 40.2,44.7 L36,40.1 C32.9,42.4 29.1,43.7 24.9,43.7 C14.6,43.8 6.2,35.4 6.2,25 C6.2,14.6 14.6,6.3 24.9,6.3 C35,6.3 43.2,14.4 43.6,24.4 L43.6,25 L35.5,25 L46.2,36.9 C46.1,36.9 57.1,25 57.1,25 Z"></path>
+        </g>
+    </g>
+</svg>
