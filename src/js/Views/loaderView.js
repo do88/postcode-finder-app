@@ -1,15 +1,15 @@
 import $ from 'jquery';
+import loaderSVG from '../../img/Loader.svg';
 
 export const renderLoader = (parent) => {
 	const loader = `
         <div class="loader">
 			<svg>
-                <use href="/src/img/Loader.svg#Loader"></use>
+                <use href="${loaderSVG}#Loader"></use>
 			</svg>
         </div>
 	`;
-	document.querySelector('#primaryContent').innerHTML = loader;
-	// parent.html(loader);
+	parent.html(loader);
 };
 
 export const clearLoader = () => {

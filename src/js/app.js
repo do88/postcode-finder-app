@@ -61,8 +61,10 @@ $('#postcodeForm').on('submit', (ev) => {
 	// get the value from the form
 	const value = $("[name='postcode']").val();
 
+	// Check if postcode is valid against regex pattern
 	if (postcodeIsValid(value.toUpperCase())) {
-		messageView.displayUserMessage('Valid postcode', 'success');
+		// display loading message
+		messageView.displayUserMessage('Fetching data...', 'success');
 		// start loader
 		loaderView.renderLoader($('#primaryContent'));
 		// make the API call to postcode API
@@ -79,8 +81,4 @@ $('#postcodeForm').on('submit', (ev) => {
 
 /**
  *************************** Location button controller
- */
-
-/**
- *************************** Location, weather and time boxes
  */

@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../.config/yarn/global/node_modules/process/browser.js":[function(require,module,exports) {
+})({"../../../../../usr/local/lib/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -10919,7 +10919,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{"process":"../../../.config/yarn/global/node_modules/process/browser.js"}],"node_modules/core-js/modules/_global.js":[function(require,module,exports) {
+},{"process":"../../../../../usr/local/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"node_modules/core-js/modules/_global.js":[function(require,module,exports) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
@@ -17727,7 +17727,9 @@ var updateAPIBarHTML = function updateAPIBarHTML(apiKey) {
 };
 
 exports.updateAPIBarHTML = updateAPIBarHTML;
-},{"jquery":"node_modules/jquery/dist/jquery.js"}],"src/js/Views/loaderView.js":[function(require,module,exports) {
+},{"jquery":"node_modules/jquery/dist/jquery.js"}],"src/img/Loader.svg":[function(require,module,exports) {
+module.exports = "/../../Loader.6c244526.svg";
+},{}],"src/js/Views/loaderView.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17737,11 +17739,13 @@ exports.clearLoader = exports.renderLoader = void 0;
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
+var _Loader = _interopRequireDefault(require("../../img/Loader.svg"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var renderLoader = function renderLoader(parent) {
-  var loader = "\n        <div class=\"loader\">\n\t\t\t<svg>\n                <use href=\"/src/img/Loader.svg#Loader\"></use>\n\t\t\t</svg>\n        </div>\n\t";
-  document.querySelector('#primaryContent').innerHTML = loader; // parent.html(loader);
+  var loader = "\n        <div class=\"loader\">\n\t\t\t<svg>\n                <use href=\"".concat(_Loader.default, "#Loader\"></use>\n\t\t\t</svg>\n        </div>\n\t");
+  parent.html(loader);
 };
 
 exports.renderLoader = renderLoader;
@@ -17752,7 +17756,7 @@ var clearLoader = function clearLoader() {
 };
 
 exports.clearLoader = clearLoader;
-},{"jquery":"node_modules/jquery/dist/jquery.js"}],"src/js/app.js":[function(require,module,exports) {
+},{"jquery":"node_modules/jquery/dist/jquery.js","../../img/Loader.svg":"src/img/Loader.svg"}],"src/js/app.js":[function(require,module,exports) {
 "use strict";
 
 var _jquery = _interopRequireDefault(require("jquery"));
@@ -17820,10 +17824,11 @@ var state = {};
 (0, _jquery.default)('#postcodeForm').on('submit', function (ev) {
   ev.preventDefault(); // get the value from the form
 
-  var value = (0, _jquery.default)("[name='postcode']").val();
+  var value = (0, _jquery.default)("[name='postcode']").val(); // Check if postcode is valid against regex pattern
 
   if ((0, _PostcodeCheck.default)(value.toUpperCase())) {
-    messageView.displayUserMessage('Valid postcode', 'success'); // start loader
+    // display loading message
+    messageView.displayUserMessage('Fetching data...', 'success'); // start loader
 
     loaderView.renderLoader((0, _jquery.default)('#primaryContent')); // make the API call to postcode API
     // save data to state
@@ -17839,11 +17844,7 @@ var state = {};
 /**
  *************************** Location button controller
  */
-
-/**
- *************************** Location, weather and time boxes
- */
-},{"jquery":"node_modules/jquery/dist/jquery.js","./Models/ApiCheck":"src/js/Models/ApiCheck.js","./Models/PostcodeCheck":"src/js/Models/PostcodeCheck.js","./Views/messageView":"src/js/Views/messageView.js","./Views/apiBarView":"src/js/Views/apiBarView.js","./Views/loaderView":"src/js/Views/loaderView.js"}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"jquery":"node_modules/jquery/dist/jquery.js","./Models/ApiCheck":"src/js/Models/ApiCheck.js","./Models/PostcodeCheck":"src/js/Models/PostcodeCheck.js","./Views/messageView":"src/js/Views/messageView.js","./Views/apiBarView":"src/js/Views/apiBarView.js","./Views/loaderView":"src/js/Views/loaderView.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -17871,7 +17872,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52501" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59753" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -18046,5 +18047,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/app.js"], null)
+},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/app.js"], null)
 //# sourceMappingURL=/app.77c12427.js.map
