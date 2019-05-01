@@ -13,6 +13,5 @@ export const renderLoader = (parent) => {
 };
 
 export const clearLoader = () => {
-	const loader = $(`.${elementStrings.loader}`);
-	if (loader) loader.remove();
+	$('.loader').remove();
 };

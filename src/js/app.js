@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import apiValidator from './Models/ApiCheck';
 import postcodeIsValid from './Models/PostcodeCheck';
+import fetchPostcodeData from './Models/Search';
+import fetchWeatherData from './Models/Weather';
 import * as messageView from './Views/messageView';
 import * as apiBarView from './Views/apiBarView';
 import * as loaderView from './Views/loaderView';
@@ -27,10 +29,13 @@ $('#apiForm').on('submit', (ev) => {
 		if (data.name === 'London') {
 			// if response successful from London saved the API key to the state
 			state.key = value;
+			// Save state to local storage
 			// Display success message
 			messageView.displayUserMessage('API Key is now saved.', 'success');
 			// Update top HTML bar
 			apiBarView.updateAPIBarHTML(value);
+			// Unlock the postcode form input field
+			$('#postcodeForm input').prop('disabled', false);
 		}
 	}).catch((err) => {
 		// Display error message
@@ -63,16 +68,34 @@ $('#postcodeForm').on('submit', (ev) => {
 
 	// Check if postcode is valid against regex pattern
 	if (postcodeIsValid(value.toUpperCase())) {
-		// display loading message
-		messageView.displayUserMessage('Fetching data...', 'success');
-		// start loader
-		loaderView.renderLoader($('#primaryContent'));
 		// make the API call to postcode API
-		// save data to state
-		// make second call to openweather API
-		// save data to state
-		// clear loader
-		// update model HTML
+		fetchPostcodeData(value).then((data) => {
+			if (data.status === 200) {
+				// display loading message
+				messageView.displayUserMessage('Fetching data...', 'success');
+				// start loader
+				loaderView.renderLoader($('#primaryContent'));
+				// save data to state
+				state.locationData = data.result;
+				console.log(state);
+				// make second call to openweather API
+				fetchWeatherData(state).then((dataWeather) => {
+					console.log(dataWeather);
+					// save data to state
+					// Save state to local storage
+					// clear loader
+					loaderView.clearLoader();
+					// update model HTML
+				}).catch((error) => {
+					console.log(error);
+				});
+			}
+		}).catch(() => {
+			messageView.displayUserMessage('Invalid postcode', 'error');
+		});
+	} else if (state.key === undefined) {
+		// If no API key display this error
+		messageView.displayUserMessage('Please enter your openweathermap API key first.', 'error');
 	} else {
 		// invalid postcode display error HTML
 		messageView.displayUserMessage('Invalid postcode', 'error');
