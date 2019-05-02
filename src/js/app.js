@@ -3,9 +3,11 @@ import apiValidator from './Models/ApiCheck';
 import postcodeIsValid from './Models/PostcodeCheck';
 import fetchPostcodeData from './Models/Search';
 import fetchWeatherData from './Models/Weather';
+import fetchPostcodeFromLocation from './Models/LocationPostcodeFetch';
 import * as messageView from './Views/messageView';
 import * as apiBarView from './Views/apiBarView';
 import * as loaderView from './Views/loaderView';
+import * as weatherView from './Views/weatherView';
 
 /** *************************** Global state of the app
  * - API Key: b9036571a9ba3bebe8a88fa39384a0c1
@@ -13,7 +15,7 @@ import * as loaderView from './Views/loaderView';
  * - Location Data = location
  * - Weather Data = weather
  */
-const state = {};
+let state = {};
 
 /**
  *************************** API form controller
@@ -29,7 +31,6 @@ $('#apiForm').on('submit', (ev) => {
 		if (data.name === 'London') {
 			// if response successful from London saved the API key to the state
 			state.key = value;
-			// Save state to local storage
 			// Display success message
 			messageView.displayUserMessage('API Key is now saved.', 'success');
 			// Update top HTML bar
@@ -43,7 +44,12 @@ $('#apiForm').on('submit', (ev) => {
 	});
 });
 
-// Clear key event listener
+// Clear key event listener, resets object and reloads page
+$('#api-bar').on('click', '.button--clear', (ev) => {
+	state = {};
+	// eslint-disable-next-line no-restricted-globals
+	location.reload(true);
+});
 
 /**
  *************************** Postcode form controller
@@ -65,29 +71,35 @@ $('#postcodeForm').on('submit', (ev) => {
 	ev.preventDefault();
 	// get the value from the form
 	const value = $("[name='postcode']").val();
+	getPostcodeAndWeatherData(value);
+});
 
+function getPostcodeAndWeatherData(value) {
 	// Check if postcode is valid against regex pattern
 	if (postcodeIsValid(value.toUpperCase())) {
 		// make the API call to postcode API
 		fetchPostcodeData(value).then((data) => {
 			if (data.status === 200) {
 				// display loading message
-				messageView.displayUserMessage('Fetching data...', 'success');
+				messageView.displayUserMessage('Fetching data weather...', 'success');
 				// start loader
-				loaderView.renderLoader($('#primaryContent'));
+				loaderView.renderLoader();
 				// save data to state
 				state.locationData = data.result;
-				console.log(state);
 				// make second call to openweather API
 				fetchWeatherData(state).then((dataWeather) => {
-					console.log(dataWeather);
 					// save data to state
-					// Save state to local storage
-					// clear loader
-					loaderView.clearLoader();
-					// update model HTML
-				}).catch((error) => {
-					console.log(error);
+					state.weatherData = dataWeather;
+					// clear loader with slight delay to make it look like its loading ;)
+					setTimeout(() => {
+						loaderView.clearLoader();
+						weatherView.renderWeatherBox(state);
+						console.log(state);
+					}, 1000);
+				}).catch(() => {
+					messageView.displayUserMessage('Error fetching weather data, please try again', 'error');
+					// eslint-disable-next-line no-restricted-globals
+					location.reload();
 				});
 			}
 		}).catch(() => {
@@ -100,8 +112,24 @@ $('#postcodeForm').on('submit', (ev) => {
 		// invalid postcode display error HTML
 		messageView.displayUserMessage('Invalid postcode', 'error');
 	}
-});
+}
 
 /**
  *************************** Location button controller
  */
+
+$('.postcode-search__button').on('click', (ev) => {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition((position) => {
+			console.log(position);
+			fetchPostcodeFromLocation(position.coords.longitude, position.coords.latitude)
+				.then(data => console.log(data))
+				.catch(error => console.log(error));
+		});
+	} else {
+		messageView.displayUserMessage('No loco bro', 'error');
+	}
+});
+
+// latitude: 52.226457599999996
+// longitude: -2.3339008

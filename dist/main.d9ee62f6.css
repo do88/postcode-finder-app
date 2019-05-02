@@ -677,6 +677,8 @@ svg {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 980px;
+  margin: 0 auto;
 }
 .boxes .location,
 .boxes .weather {

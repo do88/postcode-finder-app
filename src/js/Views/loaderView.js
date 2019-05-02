@@ -9,7 +9,7 @@ export const renderLoader = (parent) => {
 			</svg>
         </div>
 	`;
-	parent.html(loader);
+	$('#primaryContent').html(loader);
 };
 
 export const clearLoader = () => {
