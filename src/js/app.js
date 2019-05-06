@@ -75,8 +75,11 @@ $('#postcodeForm').on('submit', (ev) => {
 });
 
 function getPostcodeAndWeatherData(value) {
-	// Check if postcode is valid against regex pattern
-	if (postcodeIsValid(value.toUpperCase())) {
+	if (state.key === undefined) {
+		// If no API key display this error
+		messageView.displayUserMessage('Please enter your openweathermap API key first.', 'error');
+	} else if (postcodeIsValid(value.toUpperCase())) {
+		// Check if postcode is valid against regex pattern
 		// make the API call to postcode API
 		fetchPostcodeData(value).then((data) => {
 			if (data.status === 200) {
@@ -96,18 +99,16 @@ function getPostcodeAndWeatherData(value) {
 						weatherView.renderWeatherBox(state);
 						console.log(state);
 					}, 1000);
-				}).catch(() => {
+				}).catch((error) => {
 					messageView.displayUserMessage('Error fetching weather data, please try again', 'error');
 					// eslint-disable-next-line no-restricted-globals
 					location.reload();
+					console.log(error);
 				});
 			}
 		}).catch(() => {
 			messageView.displayUserMessage('Invalid postcode', 'error');
 		});
-	} else if (state.key === undefined) {
-		// If no API key display this error
-		messageView.displayUserMessage('Please enter your openweathermap API key first.', 'error');
 	} else {
 		// invalid postcode display error HTML
 		messageView.displayUserMessage('Invalid postcode', 'error');
@@ -119,11 +120,17 @@ function getPostcodeAndWeatherData(value) {
  */
 
 $('.postcode-search__button').on('click', (ev) => {
+	// Check if browser feature is available
 	if (navigator.geolocation) {
+		// Get current position
 		navigator.geolocation.getCurrentPosition((position) => {
 			console.log(position);
+			// Make API call using long and lat location details
 			fetchPostcodeFromLocation(position.coords.longitude, position.coords.latitude)
-				.then(data => console.log(data))
+				.then((data) => {
+					console.log(data.result[0].postcode);
+					getPostcodeAndWeatherData(data.result[0].postcode);
+				})
 				.catch(error => console.log(error));
 		});
 	} else {
