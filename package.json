@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-		"start": "parcel index.html --no-cache --port 3000 --open",
-		"build:parcel": "parcel build index.html --no-cache --out-dir web --public-url '.'",
-		"build": "npm run clean && npm run build:parcel",
-		"clean": "rm -rf web/*"
-	},
+    "start": "parcel index.html --no-cache --port 3000 --open",
+    "build:parcel": "parcel build index.html --no-cache --out-dir web --public-url '.'",
+    "build": "npm run clean && npm run build:parcel",
+    "clean": "rm -rf web/*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://do88@github.com/do88/postcode-finder-app.git"
@@ -20,18 +20,17 @@
   },
   "homepage": "https://github.com/do88/postcode-finder-app#readme",
   "devDependencies": {
+    "parcel-bundler": "^1.12.4",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "cssnano": "^4.1.10",
-    "sass": "^1.20.1"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.4.4",
     "babel-polyfill": "^6.26.0",
+    "@babel/polyfill": "^7.4.4",
+    "cssnano": "^4.1.10",
+    "sass": "^1.20.1",
     "jquery": "^3.4.0",
-    "moment": "^2.24.0",
-    "parcel": "^1.12.4"
-  }
+    "moment": "^2.24.0"
+  },
+  "dependencies": {}
 }
